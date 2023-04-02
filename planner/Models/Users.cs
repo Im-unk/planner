@@ -20,7 +20,7 @@ namespace planner.Models
         public string Password { get; set; }
         public string Mobile { get; set; }
         public DateTime RegisterDate { get; set; }
-        public DateTime LoginDate { get; set; }
+         public DateTime LoginDate { get; set; }
         public string Address { get; set; }
     }
 }

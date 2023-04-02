@@ -6,11 +6,11 @@
         {
             MonthId = 0;
             MonthName = "";
-            MonthNumber = "";
+            MonthNumber = 0;
         }
 
         public int MonthId { get; set; }
         public string MonthName { get; set; }
-        public string MonthNumber { get; set; }
+        public int MonthNumber { get; set; }
     }
 }
