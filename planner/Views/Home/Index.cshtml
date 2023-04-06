@@ -4,16 +4,471 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<div>
-    <ul>
-        @foreach (var month in Model.Month)
-        {
-            <li>@month.MonthName</li>
-        }
-    </ul>
-</div>
+    <main>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3">
+              <aside>
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button accordion-button1 collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      فروردین
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseTwo"
+                    >
+                      اردیبهشت
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseThree"
+                    >
+                      خرداد
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingfour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapsefour"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseThree"
+                    >
+                      تیر
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapsefour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingfour"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingfive">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapsefive"
+                      aria-expanded="false"
+                      aria-controls="flush-collapsefive"
+                    >
+                      مرداد
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapsefive"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingfive"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingsix">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapsesix"
+                      aria-expanded="false"
+                      aria-controls="flush-collapsesix"
+                    >
+                      شهریور
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapsesix"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingsix"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingseven">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseseven"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseseven"
+                    >
+                      مهر
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseseven"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingseven"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingeight">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseeight"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseeight"
+                    >
+                      آبان
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseeight"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingeight"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingnine">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapsenine"
+                      aria-expanded="false"
+                      aria-controls="flush-collapsenine"
+                    >
+                      آذر
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapsenine"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingnine"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingten">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseten"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseten"
+                    >
+                      دی
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseten"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingten"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingeleven">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseeleven"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseeleven"
+                    >
+                      بهمن
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseeleven"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingeleven"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingtwelve">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapsetwelve"
+                      aria-expanded="false"
+                      aria-controls="flush-collapsetwelve"
+                    >
+                      اسفند
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapsetwelve"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingtwelve"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                        <li>جمعه،04 فروردین 1402</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            </div>
+                <div class="col-9">
+              <div class="detail_dashbord">
+                <div class="row">
+                  <div class="detail_dashbord1 col-3">
+                    <div>
+                      <img
+                        class="img_detail_dashbord"
+                        src="~/img/analysis.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="detail_dashbord_div">
+                      <span class="detail_dashbord_span">کارهای انجام شده</span>
+                      <p class="detail_dashbord_p">0 انجام شده</p>
+                    </div>
+                  </div>
+                  <div class="detail_dashbord1 col-3">
+                    <div>
+                      <img
+                        class="img_detail_dashbord"
+                        src="~/img/hanging.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="detail_dashbord_div">
+                      <span class="detail_dashbord_span"
+                        >کارهای انجام نشده</span
+                      >
+                      <p class="detail_dashbord_p">0 انجام نشده</p>
+                    </div>
+                  </div>
+                  <div class="detail_dashbord1 col-3">
+                    <div>
+                      <img
+                        class="img_detail_dashbord"
+                        src="~/img/rating.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="detail_dashbord_div">
+                      <span class="detail_dashbord_span">امتیازات</span>
+                      <p class="detail_dashbord_p">0 ستاره</p>
+                    </div>
+                  </div>
+                  <div class="detail_dashbord1 col-3">
+                    <div>
+                      <img
+                        class="img_detail_dashbord"
+                        src="~/img/calendar.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="detail_dashbord_div">
+                      <span class="detail_dashbord_span">کارهای امروز</span>
+                      <p class="detail_dashbord_p">0 امروز</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="detail_dashbord">
+                  <div class="row">
+                    <div class="detail_dashbord1 col-4">
+                      <img
+                    class="detail_dashbord_personnel_img"
+                    src="~/img/محمدرضا عرب.png"
+                  />
+                    </div>
+                    <div class="detail_dashbord1 col-4">
+                      <p class="detail_dashbord_p">
+                        تکمیل اطلاعات کاربری
+                      </p>
+                    </div>
+                    <div class="detail_dashbord1 col-4">
+                      <a href="#" class="button_link"
+                      ><button class="button_user">تکمیل اصلاعات کاربری</button></a
+                    >
+                    </div>
+                  </div>
+             
+            </div>
+            </div>
+          </div>
+            </div>
+          </div>
+    </main>
+ 

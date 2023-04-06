@@ -9,13 +9,15 @@ namespace planner.Models
             TaskId = 0;
             MonthId = 0;
             YearId = 0;
+            DayId = 0;
             TaskName = "";
             IsDone = 0;
         }
 
         public int TaskId { get; set; }
         public int MonthId { get; set; }
-        public int YearId { get; private set; }
+        public int YearId { get;  set; }
+        public int DayId { get;  set; }
         public string TaskName { get; set; }
         public int IsDone { get; set; }
     }

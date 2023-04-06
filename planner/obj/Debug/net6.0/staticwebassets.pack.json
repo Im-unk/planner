@@ -9,8 +9,48 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\IRANSansWeb.woff2",
+      "PackagePath": "staticwebassets\\fonts\\IRANSansWeb.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\IRANSansWeb_Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\IRANSansWeb_Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\IRANSansWeb_Medium.woff2",
+      "PackagePath": "staticwebassets\\fonts\\IRANSansWeb_Medium.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\analysis.png",
+      "PackagePath": "staticwebassets\\img\\analysis.png"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\calendar.png",
+      "PackagePath": "staticwebassets\\img\\calendar.png"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\close.png",
+      "PackagePath": "staticwebassets\\img\\close.png"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\hanging.png",
+      "PackagePath": "staticwebassets\\img\\hanging.png"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\rating.png",
+      "PackagePath": "staticwebassets\\img\\rating.png"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\محمدرضا عرب.png",
+      "PackagePath": "staticwebassets\\img\\محمدرضا عرب.png"
     },
     {
       "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\js\\site.js",

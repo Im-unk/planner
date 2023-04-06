@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using planner.Models;
 using planner.ViewModels;
+using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Reflection.Metadata;
+using System.Web;
 
 namespace planner.Controllers
 {
@@ -9,10 +13,12 @@ namespace planner.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger , IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
+
 
         public IActionResult Index()
         {
@@ -76,8 +82,12 @@ namespace planner.Controllers
                 Users = users
             };
 
-            return Content("Year" + YearId + " - " + "Month" + MonthId);
+            return View(_home);
         }
+
+        // getting my connection string from appsetting.json
+        private readonly IConfiguration _config;
+
 
         public IActionResult Privacy()
         {
@@ -92,6 +102,39 @@ namespace planner.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTask(HomeViewModels task)
+        {
+            //Get the connection string from the configuration file
+            string connectionString = _config.GetConnectionString("MySqlConnection");
+
+            // create a new ADO.NET connection
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                
+                // open the connection
+                connection.Open();
+
+                // sql command to insert the data 
+                using (MySqlCommand command = new MySqlCommand("INSERT INTO Tasks (TaskName , IsDone, MonthId , YearId , DayId) VALUES (@TaskName , @IsDone , @MonthId , @YearId , @DayId)", connection))
+                {
+                    command.Parameters.AddWithValue("@TaskName", task.Tasks.TaskName);
+                    command.Parameters.AddWithValue("@IsDone", task.Tasks.IsDone);
+                    command.Parameters.AddWithValue("@MonthId", task.Tasks.MonthId);
+                    command.Parameters.AddWithValue("@YearId", task.Tasks.YearId);
+                    command.Parameters.AddWithValue("@DayId", task.Tasks.DayId);
+
+                    //execute the command
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // returns inserted task as json
+                    return Json(task);
+                }
+
+            }
+
         }
     }
 }

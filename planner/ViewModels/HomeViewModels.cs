@@ -10,6 +10,7 @@ namespace planner.ViewModels
         public Description Description { get; set; }
         public List<Month> Month { get; set; }
         public List<Year> Year { get; set; }
+        public List<Day> Day { get; set; }
         public Users Users { get; set; }
     }
 }
