@@ -165,27 +165,25 @@
                     <div class="detail">
                     <p class="detail_item_p">هزینه ها</p>
                     <div class="detail_item_wrapper">
-                                    @foreach (var expense in Model.ExpenseList)
-                                    {
-                                        <div class="detail_item detail_item_expense" data-id="@expense.ExpenseId">
-                                            <div class="detail_item_close detail_item_close_expense" data-id="@expense.ExpenseId">
-                                                <img class="detail_img" src="~/img/close.png" alt="" />
-                                            </div>
-                                            <div class="detail_item_task">
-                                                <span class="detail_item_span">
-                                                    @expense.ExpenseTitle
-                                                </span>
-                                            </div>
-                                            <div class="detail_item_Cost">
-                                                <span>
-                                                    @expense.ExpensePrice تومان
-                                                </span>
-                                            </div>
+                        @foreach (var expense in Model.ExpenseList)
+                        {
+                            <div class="detail_item detail_item_expense" data-id="@expense.ExpenseId">
+                                <div class="detail_item_close detail_item_close_expense" data-id="@expense.ExpenseId">
+                                    <img class="detail_img" src="~/img/close.png" alt="" />
+                                </div>
+                                <div class="detail_item_task">
+                                    <span class="detail_item_span">
+                                        @expense.ExpenseTitle
+                                    </span>
+                                </div>
+                                <div class="detail_item_Cost">
+                                    <span>
+                                        @expense.ExpensePrice تومان
+                                    </span>
+                                </div>
    
-                                        </div>
-                                    }
-                      
-                      
+                            </div>
+                        }
                       <div class="detail_item_add">
                         <div class="detail_item_add">
                             @using (Html.BeginForm("AddExpense", "Home"))
@@ -308,7 +306,11 @@
                       </li>
                     </ul>
                     <div class="detail">
-                      <textarea class="detail_textarea" ></textarea>
+                        @foreach(var details in Model.DescriptionList)
+                                {
+                                 <textarea class="detail_textarea">@details.DescriptionName</textarea>
+                                    
+                                }
                       <div class="detail_item_submit_wrapper">
                       <div class="detail_item_submit_text">
                         <button class="detail_submit">ثبت</button>
@@ -319,25 +321,47 @@
                         $(document).ready(function () {
                            
                                 $(".detail_submit").on('click', function () {
-
                                     var _MonthId = new URLSearchParams(window.location.search).get("MonthId");     
                                     var _YearId = new URLSearchParams(window.location.search).get("YearId");                        
                                     var _DayId = new URLSearchParams(window.location.search).get("DayId");
                                     var _text = $(".detail_textarea").val();
 
-                                    $.ajax({
-                                        url: "/Home/AddDescription",
-                                        type: "POST",
-                                        data: { 
-                                            _text : _text,
-                                            _MonthId : _MonthId,
-                                            _YearId : _YearId,
-                                            _DayId , _DayId
-                                        },
-                                        success: function (data) {
-                                            console.log(data);
-                                        }
-                                    })
+                                    if (!$(".detail_textarea").val()) {
+
+                                        $.ajax({
+                                            url: "/Home/AddDescription",
+                                            type: "POST",
+                                            data: { 
+                                                _text : _text,
+                                                _MonthId : _MonthId,
+                                                _YearId : _YearId,
+                                                _DayId , _DayId
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                            }
+                                        });
+                                    }
+                                    else {
+
+                                        $.ajax({
+                                            url: "/Home/UpdateDescription",
+                                            type: "POST",
+                                            data: { 
+                                                _text : _text,
+                                                _YearId : _YearId,
+                                                _MonthId : _MonthId,
+                                                _DayId , _DayId
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                            }, 
+                                            error : function () {
+                                                alert("something wrong")
+                                            }
+                                        });
+                                    }
+                                    
 
                                 })
                           

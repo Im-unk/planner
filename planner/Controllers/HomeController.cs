@@ -477,5 +477,39 @@ namespace planner.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult UpdateDescription(string _text, int _YearId, int _MonthId, int _DayId)
+        {
+            //Get the connection string from the configuration file
+            string connectionString = _config.GetConnectionString("MySqlConnection");
+
+            // create a new ADO.NET connection
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+
+                // open the connection
+                connection.Open();
+
+                // sql command to insert the data 
+                using (MySqlCommand command = new MySqlCommand("UPDATE Description SET DescriptionName = @DescriptionName WHERE MonthId = @MonthId and YearId = @YearId and DayId = @DayId ", connection))
+                {
+                    command.Parameters.AddWithValue("@DescriptionName", _text);
+                    command.Parameters.AddWithValue("@MonthId", _MonthId);
+                    command.Parameters.AddWithValue("@YearId", _YearId);
+                    command.Parameters.AddWithValue("@DayId", _DayId);
+
+                    //execute the command
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // get the query strings in a string 
+                    string _queryParams = "?YearId=" + _YearId + "&MonthId=" + _MonthId + "&DayId=" + _DayId;
+                    // redirect it to the URL
+                    return Redirect("/Home/Activity" + _queryParams);
+                }
+
+            }
+
+        }
+
     }
 }
