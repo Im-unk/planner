@@ -1,12 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Http;
+@using System.Globalization
 
 @model planner.ViewModels.HomeViewModels;
 
 
 @{
-    var monthId = Context.Request.Query["MonthId"];
-    var dayId = Context.Request.Query["DayId"];
-    var YearId = Context.Request.Query["YearId"];
+    var now = DateTime.Now;
+    var persianCalendar = new System.Globalization.PersianCalendar();
 }
     <main>
       <div class="container-fluid">
@@ -14,378 +14,47 @@
           <div class="col-3">
             <aside>
               <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button
-                      class="accordion-button accordion-button1 collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseOne"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseOne"
-                    >
-                      فروردین
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseOne"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseTwo"
-                    >
-                      اردیبهشت
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseTwo"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingTwo"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseThree"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseThree"
-                    >
-                      خرداد
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseThree"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingfour">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsefour"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseThree"
-                    >
-                      تیر
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapsefour"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingfour"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingfive">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsefive"
-                      aria-expanded="false"
-                      aria-controls="flush-collapsefive"
-                    >
-                      مرداد
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapsefive"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingfive"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingsix">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsesix"
-                      aria-expanded="false"
-                      aria-controls="flush-collapsesix"
-                    >
-                      شهریور
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapsesix"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingsix"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingseven">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseseven"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseseven"
-                    >
-                      مهر
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseseven"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingseven"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingeight">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseeight"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseeight"
-                    >
-                      آبان
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseeight"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingeight"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingnine">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsenine"
-                      aria-expanded="false"
-                      aria-controls="flush-collapsenine"
-                    >
-                      آذر
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapsenine"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingnine"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingten">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseten"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseten"
-                    >
-                      دی
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseten"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingten"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingeleven">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseeleven"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseeleven"
-                    >
-                      بهمن
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseeleven"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingeleven"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingtwelve">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsetwelve"
-                      aria-expanded="false"
-                      aria-controls="flush-collapsetwelve"
-                    >
-                      اسفند
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapsetwelve"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingtwelve"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body">
-                      <ul>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                        <li>جمعه،04 فروردین 1402</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                        @{
+                            for(int month = 1; month <= 12; month++)
+                            {
+                                var monthStartDate = new DateTime(now.Year, month, 1);
+                                var daysInMonth = DateTime.DaysInMonth(now.Year , month);
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-heading@(monthStartDate.ToString("MMMM"))">
+                                        <button class="accordion-button accordion-button1 collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapse@(monthStartDate.ToString("MMMM"))"
+                                            aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                            @GetPersianMonth(month)
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse@(monthStartDate.ToString("MMMM"))"
+                                     class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingOne"
+                                     data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <ul>
+                                            @for (int day = 1; day <= daysInMonth; day++)
+                                                {
+                                                    var date = new DateTime(now.Year, month, day);
+                                                    var persianDate = persianCalendar.GetYear(date) + "/" +
+                                                    persianCalendar.GetMonth(date).ToString("00") + "/" +
+                                                    persianCalendar.GetDayOfMonth(date).ToString("00");
+
+                                                    <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">@persianCalendar.GetDayOfWeek(date).ToString() - @persianDate</a></li>
+
+                                                }
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        
               </div>
             </aside>
           </div>
@@ -413,56 +82,33 @@
                   <div class="detail">
                   <p class="detail_item_p">کارهای روزانه</p>
                   <div class="detail_item_wrapper">
-                    <div class="detail_item">
-                      <div class="detail_item_close">
-                        <img class="detail_img" src="~/img/close.png" alt="" />
-                      </div>
-                      <div class="detail_item_task">
-                        <span class="detail_item_span"
-                          >آموزش پیگیری از کوروش
-                        </span>
-                      </div>
-                      <div class="detail_item_check">
-                        <input type="checkbox" />
-                      </div>
-                    </div>
-                    <div class="detail_item">
-                      <div class="detail_item_close">
-                        <img class="detail_img" src="~/img/close.png" alt="" />
-                      </div>
-                      <div class="detail_item_task">
-                        <span class="detail_item_span"
-                          >اموزش css , html 
-                        </span>
-                      </div>
-                      <div class="detail_item_check">
-                        <input type="checkbox" />
-                      </div>
-                    </div>
-                    <div class="detail_item">
-                      <div class="detail_item_close">
-                        <img class="detail_img" src="~/img/close.png" alt="" />
-                      </div>
-                      <div class="detail_item_task">
-                        <span class="detail_item_span"
-                          > @Context.Request.Query["MonthId"]
-                        </span>
-                      </div>
-                      <div class="detail_item_check">
-                        <input type="checkbox" />
-                      </div>
-                    </div>
+                    @foreach (var task in Model.TasksList)
+                    {
+                            <div class="detail_item detail_item_task" data-id="@task.TaskId">
+                                    <div class="detail_item_close detail_item_close_task" data-id="@task.TaskId">
+                                <img class="detail_img" src="~/img/close.png" alt="" />
+                            </div>
+                            <div class="detail_item_task">
+                                <span class="detail_item_span">
+                                    @task.TaskName
+                                </span>
+                            </div>
+                            <div class="detail_item_check">
+                                <input class="detail_item_checkbox" data-id="@task.TaskId" type="checkbox" @(task.IsDone == 1 ? "checked" : "no") />
+                            </div>
+                        </div>
+
+                    }
                     <div class="detail_item_add">
                             @using (Html.BeginForm("addTask" , "Home"))
                             {
-                                  <div class="form-group">
-                                      @Html.TextBoxFor(m => m.Tasks.TaskName , new {@Class = "detail_input"})
-                                      @Html.HiddenFor(m => m.Tasks.YearId , new { @Id = "yearID" })
-                                      @Html.HiddenFor(m => m.Tasks.MonthId , new { @Id = "monthID" })
-                                      @Html.HiddenFor(m => m.Tasks.DayId , new { @Id = "dayID" })
-                                      <button class="detail_submit" type="submit">ثبت</button>
-                                  </div>
-                                  
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Tasks.TaskName , new {@Class = "detail_input"})
+                                    @Html.HiddenFor(m => m.Tasks.YearId , new { @Id = "yearID" })
+                                    @Html.HiddenFor(m => m.Tasks.MonthId , new { @Id = "monthID" })
+                                    @Html.HiddenFor(m => m.Tasks.DayId , new { @Id = "dayID" })
+                                    <button class="detail_submit" type="submit">ثبت</button>
+                                </div>
                             }
                         </div>
                         <script>
@@ -475,6 +121,43 @@
                                 document.getElementById("dayID").value = _dayId;
                             })
                         </script>
+                        <script>
+                            $(document).ready(function() {
+                                $(".detail_item_close_task").each(function() {
+                                    $(this).on('click' , function() {
+                                        var _taskId = $(this).data("id");
+
+                                        $.ajax({
+                                            url: "/Home/DeleteTask",
+                                            type: "POST",
+                                            data: {_id : _taskId},
+                                            success: function (data) {
+                                                //remove the item from the list in the client side
+                                                $(".detail_item_task[data-id='" + _taskId + "']").remove();
+                                            }
+                                        })
+
+                                    })
+                                });
+
+                                $(".detail_item_checkbox").each(function () {
+                                    $(this).change(function () {
+                                        var _ItemId = $(this).data("id");
+                                        var _isDone = $(this).is(':checked') ? 1 : 0;
+
+                                        $.ajax ({
+                                            type: "POST",
+                                            url: "/Home/UpdateTask",
+                                            data: {_id: _ItemId , _isDone: _isDone },
+                                            success: function (data) {
+                                                console.log (data);
+                                            }
+                                        });
+
+                                    })
+                                })
+                            })
+                        </script>
                   </div>
                 </div>
                 </div>
@@ -482,58 +165,72 @@
                     <div class="detail">
                     <p class="detail_item_p">هزینه ها</p>
                     <div class="detail_item_wrapper">
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
-                        </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >خرج کردن ماشین
-                          </span>
-                        </div>
-                        <div class="detail_item_Cost">
-                          <span> 100هزارتومن 
-                          </span>
-                        </div>
-                      </div>
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
-                        </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >خریدن کردن لباس
-                          </span>
-                        </div>
-                        <div class="detail_item_Cost">
-                          <span> 300هزارتومن 
-                          </span>
-                        </div>
-                      </div>
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
-                        </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >خریدن سرور
-                          </span>
-                        </div>
-                        <div class="detail_item_Cost">
-                          <span> 1200هزارتومن 
-                          </span>
-                        </div>
-                      </div>
+                                    @foreach (var expense in Model.ExpenseList)
+                                    {
+                                        <div class="detail_item detail_item_expense" data-id="@expense.ExpenseId">
+                                            <div class="detail_item_close detail_item_close_expense" data-id="@expense.ExpenseId">
+                                                <img class="detail_img" src="~/img/close.png" alt="" />
+                                            </div>
+                                            <div class="detail_item_task">
+                                                <span class="detail_item_span">
+                                                    @expense.ExpenseTitle
+                                                </span>
+                                            </div>
+                                            <div class="detail_item_Cost">
+                                                <span>
+                                                    @expense.ExpensePrice تومان
+                                                </span>
+                                            </div>
+   
+                                        </div>
+                                    }
+                      
+                      
                       <div class="detail_item_add">
-                        <div class="detail_item_add_task">
-                          <input class="detail_input" type="text" placeholder="نام هزینه" />
+                        <div class="detail_item_add">
+                            @using (Html.BeginForm("AddExpense", "Home"))
+                            {
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Expenses.ExpenseTitle , new {@Class = "detail_input"})
+                                    @Html.TextBoxFor(m => m.Expenses.ExpensePrice , new {@Class = "detail_input"})
+                                    @Html.HiddenFor(m => m.Expenses.YearId , new { @Id = "yearIDE" })
+                                    @Html.HiddenFor(m => m.Expenses.MonthId , new { @Id = "monthIDE" })
+                                    @Html.HiddenFor(m => m.Expenses.DayId , new { @Id = "dayIDE" })
+                                    <button class="detail_submit" type="submit">ثبت</button>
+                                </div>
+                            }
                         </div>
-                        <div class="detail_item_add_task">
-                          <input class="detail_input" type="text" placeholder="مبلغ " />
-                        </div>
-                        <div class="detail_item_submit">
-                          <button class="detail_submit">ثبت</button>
-                        </div>
+                        <script>
+                            document.addEventListener("DOMContentLoaded" , function() {
+                                var _monthId = new URLSearchParams(window.location.search).get("MonthId");
+                                document.getElementById("monthIDE").value = _monthId;
+                                var _yearId = new URLSearchParams(window.location.search).get("YearId");
+                                document.getElementById("yearIDE").value = _yearId;
+                                var _dayId = new URLSearchParams(window.location.search).get("DayId");
+                                document.getElementById("dayIDE").value = _dayId;
+                            })
+                        </script>
+
+                        <script>
+                            $(document).ready(function() {
+                                $(".detail_item_close_expense").each(function() {
+                                    $(this).on('click' , function() {
+                                        var _expenseId = $(this).data("id");
+
+                                        $.ajax({
+                                            url: "/Home/DeleteExpense",
+                                            type: "POST",
+                                            data: { _id: _expenseId },
+                                            success: function (data) {
+                                                //remove the item from the list in the client side
+                                                $(".detail_item_expense[data-id='" + _expenseId + "']").remove();
+                                            }
+                                        })
+
+                                    })
+                                })
+                            })
+                        </script>
                       </div>
                     </div>
                     </div>
@@ -542,44 +239,65 @@
                     <div class="detail">
                     <p class="detail_item_p">هدف ماهانه</p>
                     <div class="detail_item_wrapper">
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
+                    @foreach (var goal in Model.GoalsList)
+                    {
+                        <div class="detail_item detail_item_goal" data-id="@goal.GoalId">
+                            <div class="detail_item_close detail_item_close_goal"  data-id="@goal.GoalId">
+                                <img class="detail_img" src="~/img/close.png" alt="" />
+                            </div>
+                            <div class="detail_item_task">
+                                <span class="detail_item_span">
+                                    @goal.GoalName
+                                </span>
+                            </div>
+                                            
+
                         </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >آموزش پیگیری از کوروش
-                          </span>
-                        </div>
-                      </div>
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
-                        </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >اموزش css , html 
-                          </span>
-                        </div>
-                      </div>
-                      <div class="detail_item">
-                        <div class="detail_item_close">
-                          <img class="detail_img" src="~/img/close.png" alt="" />
-                        </div>
-                        <div class="detail_item_task">
-                          <span class="detail_item_span"
-                            >اموزش css , html 
-                          </span>
-                        </div>
-                      </div>
-                      <div class="detail_item_add">
-                        <div class="detail_item_add_task">
-                          <input class="detail_input" type="text" placeholder="نام هدف" />
-                        </div>
-                        <div class="detail_item_submit">
-                          <button class="detail_submit">ثبت</button>
-                        </div>
-                      </div>
+                    }
+              
+
+                    <div class="detail_item_add">
+                        @using (Html.BeginForm("AddGoal", "Home"))
+                        {
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.Goals.GoalName , new {@Class = "detail_input"})
+                                @Html.HiddenFor(m => m.Goals.YearId , new { @Id = "yearIDM" })
+                                @Html.HiddenFor(m => m.Goals.MonthId , new { @Id = "monthIDM" })
+                                @Html.HiddenFor(m => m.Goals.DayId , new { @Id = "dayIDM" })
+                                <button class="detail_submit" type="submit">ثبت</button>
+                            </div>
+                        }
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var _monthId = new URLSearchParams(window.location.search).get("MonthId");
+                            document.getElementById("monthIDM").value = _monthId;
+                            var _yearId = new URLSearchParams(window.location.search).get("YearId");
+                            document.getElementById("yearIDM").value = _yearId;
+                            var _dayId = new URLSearchParams(window.location.search).get("DayId");
+                            document.getElementById("dayIDM").value = _dayId;
+                        })
+                    </script>
+                    <script>
+                        $(document).ready(function () {
+                            $(".detail_item_close_expense").each(function () {
+                                $(this).on('click', function () {
+                                    var _expenseId = $(this).data("id");
+
+                                    $.ajax({
+                                        url: "/Home/DeleteExpense",
+                                        type: "POST",
+                                        data: { _id: _expenseId },
+                                        success: function (data) {
+                                            //remove the item from the list in the client side
+                                            $(".detail_item_expense[data-id='" + _expenseId + "']").remove();
+                                        }
+                                    })
+
+                                })
+                            })
+                        })
+                    </script>
                     </div>
                   </div>
                   </div>
@@ -597,11 +315,87 @@
                       </div>
                     </div>
                     </div>
+                    <script>
+                        $(document).ready(function () {
+                           
+                                $(".detail_submit").on('click', function () {
+
+                                    var _MonthId = new URLSearchParams(window.location.search).get("MonthId");     
+                                    var _YearId = new URLSearchParams(window.location.search).get("YearId");                        
+                                    var _DayId = new URLSearchParams(window.location.search).get("DayId");
+                                    var _text = $(".detail_textarea").val();
+
+                                    $.ajax({
+                                        url: "/Home/AddDescription",
+                                        type: "POST",
+                                        data: { 
+                                            _text : _text,
+                                            _MonthId : _MonthId,
+                                            _YearId : _YearId,
+                                            _DayId , _DayId
+                                        },
+                                        success: function (data) {
+                                            console.log(data);
+                                        }
+                                    })
+
+                                })
+                          
+                        })
+                    </script>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </main>
+
+@functions  {
+    private string GetPersianMonth(int month)
+    {
+        string _monthname = "";
+
+        switch(month)
+        {
+            case 1:
+                _monthname = "فروردین";
+            break;
+            case 2:
+                _monthname = "اردیبهشت";
+            break;
+            case 3:
+                _monthname = "خرداد";
+            break;
+            case 4:
+                _monthname = "تیر";
+            break;
+            case 5:
+                _monthname = "مرداد";
+            break;
+            case 6:
+                _monthname = "شهریور";
+            break;
+            case 7:
+                _monthname = "مهر";
+            break;
+            case 8:
+                _monthname = "آبان";
+            break;
+            case 9:
+                _monthname = "آذر";
+            break;
+            case 10:
+                _monthname = "دی";
+            break;
+            case 11:
+                _monthname = "بهمن";
+            break;
+            case 12:
+                _monthname = "اسفند";
+            break;
+        }
+
+        return _monthname;
+    }
+}

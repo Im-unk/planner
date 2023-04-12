@@ -10,11 +10,13 @@ namespace planner.Models
             DescriptionName = "";
             MonthId = 0;
             YearId = 0;
+            DayId = 0;
         }
 
         public int DescriptionId { get;  set; }
         public string DescriptionName { get; set; }
         public int MonthId { get; set; }
         public int YearId { get; set; }
+        public int DayId { get; set; }
     }
 }
