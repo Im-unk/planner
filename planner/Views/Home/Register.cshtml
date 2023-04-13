@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model planner.Models.Users
+
+@if (ViewData.ModelState["Mobile"] != null && ViewData.ModelState["Mobile"].Errors.Count > 0)
+{
+   <div class="alert alert-danger">@ViewData.ModelState["Mobile"].Errors[0].ErrorMessage</div>
 }
+
+    <div class="container-fluid">
+        <div class="login_wrappr_register">
+            <div class="row">
+                <div class="col-12">
+                    <div class="login_body">
+                        <div class="link_register">
+                            <h3>
+                                برای شروع ثبت نام لطفا شماره موبایل و رمز عبور خود را وارد کنید.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="login">
+                        <div class="login_main">
+                            <h1>پلنر</h1>
+                        @using (Html.BeginForm("RegisterUser", "Home"))
+                        {
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.UserName , new {@Class = "input" , @Placeholder = "نام و نام خانوادگی"})
+                                @Html.TextBoxFor(m => m.Mobile , new {@Class = "input" , @Placeholder = "شماره موبایل"})
+                                @Html.TextBoxFor(m => m.Password , new {@Class = "input" , @Id = "password", @Placeholder = "رمز عبور"})
+                                <input id="confirmPassword" type="password" required="required" class="input" placeholder="تکرار رمزعبور" />
+                                @Html.HiddenFor(m => m.RegisterDate , new { @Id = "registerDate" })
+                                @Html.HiddenFor(m => m.LoginDate , new { @Id = "loginDate" })
+                                <button id="btnRegister" class="button_login">ثبت نام</button>
+                            </div>
+                        }   
+                            <p><a href="#" class="p_a">ورود</a></p>
+                            <p><a href="#" class="p_a">رمز عبورتان را فراموش کرده‌اید؟</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#registerDate").val(Date.now());
+            $("#loginDate").val(Date.now());
+        })
+    </script>
+

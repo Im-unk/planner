@@ -12,6 +12,7 @@ namespace planner.Models
             MonthId = 0;
             YearId = 0;
             DayId = 0;
+            Id = 0;
         }
 
         public int ExpenseId { get; set; }
@@ -20,5 +21,6 @@ namespace planner.Models
         public int MonthId { get; set; }
         public int YearId { get; set; }
         public int DayId { get; set; }
+        public int Id { get; set; }
     }
 }

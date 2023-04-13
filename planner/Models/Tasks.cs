@@ -12,6 +12,7 @@ namespace planner.Models
             DayId = 0;
             TaskName = "";
             IsDone = 0;
+            Id = 0;
         }
 
         public int TaskId { get; set; }
@@ -20,5 +21,6 @@ namespace planner.Models
         public int DayId { get;  set; }
         public string TaskName { get; set; }
         public int IsDone { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -9,6 +9,7 @@
             YearId = 0;
             MonthId = 0;
             DayId = 0;
+            Id = 0;
         }
 
         public int GoalId { get; set; }
@@ -16,5 +17,6 @@
         public int YearId { get; set; }
         public int MonthId { get; set; }
         public int DayId { get; set; }
+        public int Id { get; set; }
     }
 }

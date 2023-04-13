@@ -44,7 +44,7 @@
                                                     persianCalendar.GetMonth(date).ToString("00") + "/" +
                                                     persianCalendar.GetDayOfMonth(date).ToString("00");
 
-                                                    <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">@persianCalendar.GetDayOfWeek(date).ToString() - @persianDate</a></li>
+                                                    <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">@getPersianDay(persianCalendar.GetDayOfWeek(date).ToString()) - @persianDate</a></li>
 
                                                 }
                                                 
@@ -107,6 +107,7 @@
                                     @Html.HiddenFor(m => m.Tasks.YearId , new { @Id = "yearID" })
                                     @Html.HiddenFor(m => m.Tasks.MonthId , new { @Id = "monthID" })
                                     @Html.HiddenFor(m => m.Tasks.DayId , new { @Id = "dayID" })
+                                    @Html.HiddenFor(m => m.Tasks.Id , new { @Id = "userId" })
                                     <button class="detail_submit" type="submit">ثبت</button>
                                 </div>
                             }
@@ -119,6 +120,11 @@
                                 document.getElementById("yearID").value = _yearId;
                                 var _dayId = new URLSearchParams(window.location.search).get("DayId");
                                 document.getElementById("dayID").value = _dayId;
+                                var _userId = document.cookie.match(/Id=([^;]+)/);
+                                if (_userId) {
+                                    var _userIdcookie = _userId[1];
+                                    document.getElementById("userId").value = _userIdcookie;
+                                }
                             })
                         </script>
                         <script>
@@ -194,6 +200,7 @@
                                     @Html.HiddenFor(m => m.Expenses.YearId , new { @Id = "yearIDE" })
                                     @Html.HiddenFor(m => m.Expenses.MonthId , new { @Id = "monthIDE" })
                                     @Html.HiddenFor(m => m.Expenses.DayId , new { @Id = "dayIDE" })
+                                    @Html.HiddenFor(m => m.Expenses.Id , new { @Id = "userIdE" })
                                     <button class="detail_submit" type="submit">ثبت</button>
                                 </div>
                             }
@@ -206,6 +213,11 @@
                                 document.getElementById("yearIDE").value = _yearId;
                                 var _dayId = new URLSearchParams(window.location.search).get("DayId");
                                 document.getElementById("dayIDE").value = _dayId;
+                                var _userId = document.cookie.match(/Id=([^;]+)/);
+                                if (_userId) {
+                                    var _userIdcookie = _userId[1];
+                                    document.getElementById("userIdE").value = _userIdcookie;
+                                }
                             })
                         </script>
 
@@ -262,6 +274,7 @@
                                 @Html.HiddenFor(m => m.Goals.YearId , new { @Id = "yearIDM" })
                                 @Html.HiddenFor(m => m.Goals.MonthId , new { @Id = "monthIDM" })
                                 @Html.HiddenFor(m => m.Goals.DayId , new { @Id = "dayIDM" })
+                                @Html.HiddenFor(m => m.Goals.Id , new { @Id = "userIDM" })
                                 <button class="detail_submit" type="submit">ثبت</button>
                             </div>
                         }
@@ -274,21 +287,26 @@
                             document.getElementById("yearIDM").value = _yearId;
                             var _dayId = new URLSearchParams(window.location.search).get("DayId");
                             document.getElementById("dayIDM").value = _dayId;
+                            var _userId = document.cookie.match(/Id=([^;]+)/);
+                            if (_userId) {
+                                var _userIdcookie = _userId[1];
+                                document.getElementById("userIDM").value = _userIdcookie;
+                            }
                         })
                     </script>
                     <script>
                         $(document).ready(function () {
-                            $(".detail_item_close_expense").each(function () {
+                                            $(".detail_item_close_goal").each(function () {
                                 $(this).on('click', function () {
                                     var _expenseId = $(this).data("id");
 
                                     $.ajax({
-                                        url: "/Home/DeleteExpense",
+                                        url: "/Home/DeleteGoal",
                                         type: "POST",
                                         data: { _id: _expenseId },
                                         success: function (data) {
                                             //remove the item from the list in the client side
-                                            $(".detail_item_expense[data-id='" + _expenseId + "']").remove();
+                                            $(".detail_item_goal[data-id='" + _expenseId + "']").remove();
                                         }
                                     })
 
@@ -325,6 +343,11 @@
                                     var _YearId = new URLSearchParams(window.location.search).get("YearId");                        
                                     var _DayId = new URLSearchParams(window.location.search).get("DayId");
                                     var _text = $(".detail_textarea").val();
+                                        var _userId = document.cookie.match(/Id=([^;]+)/);
+                                        if (_userId) {
+                                            var _userIdcookie = _userId[1];
+                                            
+                                        }
 
                                     if (!$(".detail_textarea").val()) {
 
@@ -335,7 +358,8 @@
                                                 _text : _text,
                                                 _MonthId : _MonthId,
                                                 _YearId : _YearId,
-                                                _DayId , _DayId
+                                                _DayId : _DayId,
+                                                _Id: _userIdcookie
                                             },
                                             success: function (data) {
                                                 console.log(data);
@@ -351,7 +375,8 @@
                                                 _text : _text,
                                                 _YearId : _YearId,
                                                 _MonthId : _MonthId,
-                                                _DayId , _DayId
+                                                _DayId : _DayId,
+                                                _Id : _userIdcookie
                                             },
                                             success: function (data) {
                                                 console.log(data);
@@ -384,42 +409,82 @@
         {
             case 1:
                 _monthname = "فروردین";
-            break;
+                break;
             case 2:
                 _monthname = "اردیبهشت";
-            break;
+                break;
             case 3:
                 _monthname = "خرداد";
-            break;
+                break;
             case 4:
                 _monthname = "تیر";
-            break;
+                break;
             case 5:
                 _monthname = "مرداد";
-            break;
+                break;
             case 6:
                 _monthname = "شهریور";
-            break;
+                break;
             case 7:
                 _monthname = "مهر";
-            break;
+                break;
             case 8:
                 _monthname = "آبان";
-            break;
+                break;
             case 9:
                 _monthname = "آذر";
-            break;
+                break;
             case 10:
                 _monthname = "دی";
-            break;
+                break;
             case 11:
                 _monthname = "بهمن";
-            break;
+                break;
             case 12:
                 _monthname = "اسفند";
-            break;
+                break;
         }
 
         return _monthname;
+    }
+
+
+    private string getPersianDay(string _day)
+    {
+        string _dayName = "";
+
+        switch(_day)
+        {
+            case "Saturday":
+            _dayName = "شنبه";
+            break;
+
+            case "Sunday":
+            _dayName = "یکشنبه";
+            break;
+
+            case "Monday":
+            _dayName = "دوشنبه";
+            break;
+
+            case "Tuesday":
+            _dayName = "سه شنبه";
+            break;
+
+            case "Wednesday":
+            _dayName = "چهارشنبه";
+            break;
+
+            case "Thursday":
+            _dayName = "پنجشنبه";
+            break;
+
+            case "Friday":
+            _dayName = "جمعه";
+            break;
+
+        }
+
+        return _dayName;
     }
 }

@@ -1,4 +1,6 @@
-﻿<div class="container-fluid">
+﻿@model planner.Models.Users
+
+<div class="container-fluid">
     <div class="login_wrappr">
         <div class="row">
             <div class="col-12">
@@ -17,15 +19,16 @@
                 <div class="login">
                     <div class="login_main">
                         <h1>پلنر</h1>
-                        <input type="text"
-                               required="required"
-                               class="input"
-                               placeholder="شماره موبایل" />
-                        <input type="password"
-                               required="required"
-                               class="input"
-                               placeholder="رمزعبور" />
-                        <a href="#" class="button_link"><button class="button_login">ورود</button></a>
+                        @using (Html.BeginForm("Login", "Home"))
+                        {
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.Mobile , new {@Class = "input" , @Placeholder = "شماره موبایل"})
+                                @Html.TextBoxFor(m => m.Password , new {@Class = "input" , @Id = "password", @Placeholder = "رمز عبور"})
+                                @*@Html.HiddenFor(m => m.LoginDate , new { @Id = "loginDate" })*@
+                                <button id="btnLogin" class="button_login">ثبت نام</button>
+                            </div>
+                        }
+                        
                         <p><a href="#" class="p_a">ثبت نام در سایت</a></p>
                         <p><a href="#" class="p_a">رمز عبورتان را فراموش کرده‌اید؟</a></p>
                     </div>
