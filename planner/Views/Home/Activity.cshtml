@@ -11,53 +11,9 @@
     <main>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-3">
-            <aside>
-              <div class="accordion accordion-flush" id="accordionFlushExample">
-                        @{
-                            for(int month = 1; month <= 12; month++)
-                            {
-                                var monthStartDate = new DateTime(now.Year, month, 1);
-                                var daysInMonth = DateTime.DaysInMonth(now.Year , month);
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading@(monthStartDate.ToString("MMMM"))">
-                                        <button class="accordion-button accordion-button1 collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapse@(monthStartDate.ToString("MMMM"))"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseOne">
-                                            @GetPersianMonth(month)
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse@(monthStartDate.ToString("MMMM"))"
-                                     class="accordion-collapse collapse"
-                                     aria-labelledby="flush-headingOne"
-                                     data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <ul>
-                                            @for (int day = 1; day <= daysInMonth; day++)
-                                                {
-                                                    var date = new DateTime(now.Year, month, day);
-                                                    var persianDate = persianCalendar.GetYear(date) + "/" +
-                                                    persianCalendar.GetMonth(date).ToString("00") + "/" +
-                                                    persianCalendar.GetDayOfMonth(date).ToString("00");
+          @Html.Partial("_sideBar")
 
-                                                    <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">@getPersianDay(persianCalendar.GetDayOfWeek(date).ToString()) - @persianDate</a></li>
-
-                                                }
-                                                
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        }
-                        
-              </div>
-            </aside>
-          </div>
           <div class="col-9">
             <div class="col-12">
               <div class="detail">

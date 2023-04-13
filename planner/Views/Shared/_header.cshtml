@@ -1,0 +1,54 @@
+﻿
+<header>
+    <div class="wrapper_welcome">
+        <div class="container-fluid">
+            <nav>
+                <div class="row">
+                    <div class="logo col-2">
+                        <img src="" alt="logo" title="logo" />
+                    </div>
+                    <div class="welcome col-6">
+                        <span id="headerWelcome" class="welcome_span"> عزیز خوش آمدید 👋</span>
+                        <span class="Date"> جمعه،04 فروردین 1402</span>
+                    </div>
+                    <div class="col-4">
+                        <div id="headerProfile" class="personnel">
+                            <img class="personnel_img"
+                                 src="~/img/محمدرضا عرب.png" />
+                        </div>
+
+                        <div id="headerLogout">
+                            <button asp-action="Logout">
+                                خروج
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+
+    $(function() {
+
+        var _userId = document.cookie.match(/Id=([^;]+)/);
+        if (_userId != null || _userId != 0) {
+            var _userIdcookie = _userId[1]; 
+            $("#headerLogout").css("display" , "block");
+        }
+        else {
+            $("#headerWelcome").css("display" , "none");
+            $("#headerProfile").css("display" , "none");
+        }
+
+    })
+
+</script>
+
+<style>
+    #headerLogout {
+        display: none;
+    }
+</style>

@@ -227,6 +227,16 @@ namespace planner.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Register()
         {
             Users users = new Users();
