@@ -17,6 +17,7 @@
           <div class="col-9">
             <div class="col-12">
               <div class="detail">
+                <div class="row">
                 <div class="detail_dashbord1 col-3">
                   <div>
                     <img
@@ -30,6 +31,21 @@
                     <p class="detail_dashbord_p">0 ستاره</p>
                   </div>
                 </div>
+                <div class="col-9 dashboard-today" >
+                                <h3> روز: <span><span id="yearToday"></span>/<span id="monthToday"></span>/<span id="dayToday"></span></span></h3>
+                    </div>
+                    <script>
+                            document.addEventListener("DOMContentLoaded" , function() {
+                                var _monthT = new URLSearchParams(window.location.search).get("MonthId");
+                                    document.getElementById("monthToday").innerHTML = _monthT;
+                                var _yearT = new URLSearchParams(window.location.search).get("YearId");
+                                    document.getElementById("yearToday").innerHTML = _yearT;
+                                var _dayT = new URLSearchParams(window.location.search).get("DayId");
+                                    document.getElementById("dayToday").innerHTML = _dayT;
+                              
+                            })
+                        </script>
+              </div>
               </div>
             </div>
             <div class="col-12">
@@ -59,13 +75,13 @@
                             @using (Html.BeginForm("addTask" , "Home"))
                             {
                                 <div class="form-group">
-                                    @Html.TextBoxFor(m => m.Tasks.TaskName , new {@Class = "detail_input"})
+                                    @Html.TextBoxFor(m => m.Tasks.TaskName , new {@Class = "detail_input" , @Placeholder = "نام فعالیت"})
                                     @Html.HiddenFor(m => m.Tasks.YearId , new { @Id = "yearID" })
                                     @Html.HiddenFor(m => m.Tasks.MonthId , new { @Id = "monthID" })
                                     @Html.HiddenFor(m => m.Tasks.DayId , new { @Id = "dayID" })
                                     @Html.HiddenFor(m => m.Tasks.Id , new { @Id = "userId" })
-                                    <button class="detail_submit" type="submit">ثبت</button>
                                 </div>
+                                    <button class="detail_submit" type="submit">ثبت</button>
                             }
                         </div>
                         <script>
@@ -151,14 +167,14 @@
                             @using (Html.BeginForm("AddExpense", "Home"))
                             {
                                 <div class="form-group">
-                                    @Html.TextBoxFor(m => m.Expenses.ExpenseTitle , new {@Class = "detail_input"})
-                                    @Html.TextBoxFor(m => m.Expenses.ExpensePrice , new {@Class = "detail_input"})
+                                    @Html.TextBoxFor(m => m.Expenses.ExpenseTitle , new {@Class = "detail_input" , @Placeholder = "نام هزینه"})
+                                    @Html.TextBoxFor(m => m.Expenses.ExpensePrice , new {@Class = "detail_input" , @Placeholder = "مبلغ"})
                                     @Html.HiddenFor(m => m.Expenses.YearId , new { @Id = "yearIDE" })
                                     @Html.HiddenFor(m => m.Expenses.MonthId , new { @Id = "monthIDE" })
                                     @Html.HiddenFor(m => m.Expenses.DayId , new { @Id = "dayIDE" })
                                     @Html.HiddenFor(m => m.Expenses.Id , new { @Id = "userIdE" })
-                                    <button class="detail_submit" type="submit">ثبت</button>
                                 </div>
+                                    <button class="detail_submit" type="submit">ثبت</button>
                             }
                         </div>
                         <script>
@@ -226,13 +242,13 @@
                         @using (Html.BeginForm("AddGoal", "Home"))
                         {
                             <div class="form-group">
-                                @Html.TextBoxFor(m => m.Goals.GoalName , new {@Class = "detail_input"})
+                                @Html.TextBoxFor(m => m.Goals.GoalName , new {@Class = "detail_input" , @Placeholder = "هدف"})
                                 @Html.HiddenFor(m => m.Goals.YearId , new { @Id = "yearIDM" })
                                 @Html.HiddenFor(m => m.Goals.MonthId , new { @Id = "monthIDM" })
                                 @Html.HiddenFor(m => m.Goals.DayId , new { @Id = "dayIDM" })
                                 @Html.HiddenFor(m => m.Goals.Id , new { @Id = "userIDM" })
-                                <button class="detail_submit" type="submit">ثبت</button>
                             </div>
+                                <button class="detail_submit" type="submit">ثبت</button>
                         }
                     </div>
                     <script>

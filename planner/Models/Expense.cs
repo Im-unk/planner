@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.Build.Framework;
+using Microsoft.VisualBasic;
 
 namespace planner.Models
 {
@@ -16,7 +17,9 @@ namespace planner.Models
         }
 
         public int ExpenseId { get; set; }
+        [Required]
         public string ExpenseTitle { get; set; }
+        [Required]
         public string ExpensePrice { get; set; }
         public int MonthId { get; set; }
         public int YearId { get; set; }

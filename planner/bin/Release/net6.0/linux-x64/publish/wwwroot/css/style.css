@@ -1,0 +1,390 @@
+﻿@font-face {
+    font-family: iransans;
+    src: url(/fonts/IRANSansWeb.woff2);
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: iransansMedium;
+    src: url(/fonts/IRANSansWeb_Medium.woff2);
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: iransansBold;
+    src: url(/fonts/IRANSansWeb_Bold.woff2);
+    font-style: normal;
+    font-display: swap;
+}
+/*/////////////////////////////////////// login  /////////////////////////////// */
+* {
+    font-family: iransans;
+}
+
+h3 {
+    font-size: 16px !important;
+}
+
+body {
+    direction: rtl;
+    background-color: #f5f5f5 !important;
+}
+
+.login_wrappr {
+    padding: 5% 0px;
+}
+
+.p_a {
+    text-decoration: none;
+    color: black;
+}
+
+.login_body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link_register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffff;
+    border-right: 4px solid #72aee6;
+    border-top: 1px solid #e0e0e2;
+    border-bottom: 1px solid #e0e0e2;
+    border-left: 1px solid #e0e0e2;
+    width: 30%;
+    margin: 0px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.login {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    width: 30%;
+}
+
+.input {
+    width: 70%;
+    height: 60px;
+    margin-top: 30px;
+    font-family: iransans;
+    color: black;
+    border-radius: 5px;
+    border-right: 3px solid #72aee6;
+    border-top: 1px solid #ffff;
+    border-bottom: 1px solid #ffff;
+    border-left: 1px solid #ffff;
+    position: relative;
+    outline: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 30px -18px;
+}
+
+    .input::placeholder {
+        color: black;
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+input:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+}
+
+.button_link {
+    width: 60%;
+}
+
+.button_login {
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 38px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient( 90deg, rgba(46, 196, 253, 1) 35%, rgba(156, 66, 255, 1) 100% );
+    color: #ffff;
+    font-family: iransans;
+    font-size: 20px;
+    transition: background-color 1s;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+    .button_login:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+/* /////////////////////////////register////////////////////////////////////////////*/
+.login_wrappr_register {
+    padding: 2.5% 0px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* /////////////////////////////dashboard////////////////////////////////////////////*/
+.wrapper_welcome {
+    background-color: #ffff;
+    padding: 1%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome_span {
+    padding-left: 15px;
+    padding-right: 20%;
+    font-size: 20px;
+    font-family: iransansBold;
+    color: rgb(59, 59, 59) !important;
+}
+
+.Date {
+    border-right: 1px solid #000000f2;
+    padding-right: 15px;
+}
+
+.personnel {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.personnel_img {
+    border-radius: 100%;
+    border: 2px solid rgba(51, 51, 51, 0.507);
+    width: 15%;
+}
+
+li {
+    padding-bottom: 15px;
+    font-size: 17px;
+}
+
+    li:hover {
+        color: rgb(174, 0, 255);
+    }
+
+    li:active {
+        color: rgb(174, 0, 255);
+    }
+
+.accordion-button {
+    padding-bottom: 10px !important;
+}
+
+    .accordion-button:hover {
+        box-shadow: 0px 10px 30px -18px;
+    }
+
+.detail_dashbord {
+    padding: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.detail_dashbord1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_detail_dashbord {
+    width: 50%;
+}
+
+.detail_dashbord_div {
+    padding-top: 50px;
+    margin-right: -15%;
+}
+
+.detail_dashbord_span {
+    color: #bdbdbd;
+}
+
+.detail_dashbord_p {
+    padding-top: 5px;
+    font-family: iransansBold;
+    font-size: 18px;
+}
+
+.detail_dashbord_personnel_img {
+    width: 50%;
+    border-radius: 100px;
+    border-radius: 100%;
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.button_user {
+    width: 100%;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient( 90deg, rgba(46, 196, 253, 1) 35%, rgba(156, 66, 255, 1) 100% );
+    color: #ffff;
+    font-family: iransans;
+    font-size: 17px;
+    transition: background-color 1s;
+    cursor: pointer;
+}
+
+/*/////////////////////////details////////////////////*/
+.detail_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #c2c2c2a2;
+}
+
+.detail_item_p {
+    text-align: center;
+    border-bottom: 1px solid #c2c2c2a2;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+.detail_item_span {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.detail_item_add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.detail {
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.detail_input {
+    width: 97%;
+    height: 40px;
+    font-family: iransans;
+    color: black;
+    border: 1px solid #c2c2c2a2;
+    border-radius: 10px;
+    outline: none;
+    margin: 0 5px;
+}
+
+    .detail_input::placeholder {
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+    .detail_input:focus {
+        border: 1px solid #c2c2c2a2;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.26);
+        background-color: #f2f2f2;
+    }
+
+.detail_submit {
+    width: 100%;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(103, 59, 150);
+    color: #ffff;
+    font-family: iransans;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.detail_item_close {
+    width: 5%;
+    opacity: 0;
+    transition: all 0.7s;
+}
+
+.detail_item_check {
+    width: 3%;
+}
+
+.detail_item_task {
+    width: 100%;
+}
+
+.detail_item:hover .detail_item_close {
+    opacity: 1;
+}
+
+.detail_item_close:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.detail_li {
+    padding-top: 20px;
+    font-family: iransansBold;
+    font-size: 20px !important;
+}
+
+    .detail_li:hover {
+        color: black;
+    }
+
+.detail_textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-family: iransans;
+    color: black;
+    border: 1px solid #c2c2c2f8;
+    border-radius: 10px;
+    outline: none;
+}
+
+.detail_item_submit_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+
+.detail_item_submit_text {
+    direction: rtl;
+    padding-top: 10px;
+    width: 10%;
+}

@@ -18,22 +18,48 @@
             <div class="col-12">
                 <div class="login">
                     <div class="login_main">
-                        <h1>پلنر</h1>
+                        <img width="200px" height="140px" src="~/img/logo.png" />
                         @using (Html.BeginForm("Login", "Home"))
                         {
-                            <div class="form-group">
+                            <div class="form-group-auth">
                                 @Html.TextBoxFor(m => m.Mobile , new {@Class = "input" , @Placeholder = "شماره موبایل"})
-                                @Html.TextBoxFor(m => m.Password , new {@Class = "input" , @Id = "password", @Placeholder = "رمز عبور"})
+                                <div class="inuputWrapper">
+                                @Html.TextBoxFor(m => m.Password , new {@Class = "input passwordInput" , @Id = "password", @Placeholder = "رمز عبور" , @Type="password"})
+                                <i class="fa fa-eye passIcon"></i>
+                                </div>
                                 @*@Html.HiddenFor(m => m.LoginDate , new { @Id = "loginDate" })*@
-                                <button id="btnLogin" class="button_login">ثبت نام</button>
+                                <button id="btnLogin" class="button_login">ورود</button>
                             </div>
                         }
                         
-                        <p><a href="#" class="p_a">ثبت نام در سایت</a></p>
-                        <p><a href="#" class="p_a">رمز عبورتان را فراموش کرده‌اید؟</a></p>
+                        <p><a asp-controller="Home" asp-action="Register" class="p_a">ثبت نام</a></p>
+                        <p><a asp-controller="Home" asp-action="ForgetPassword" class="p_a">رمز عبورتان را فراموش کرده‌اید؟</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".passIcon").on('click' , function () {
+            if ($(".passwordInput").attr("type") != "password"){
+                $(".passwordInput").attr("type" , "password"); 
+            }
+            else {
+                $(".passwordInput").attr("type" , "text");
+            }           
+        });
+    })
+</script>
+
+<style>
+    header {
+        display: none !important;
+    }
+
+    form {
+        width: 80%;
+    }
+</style>

@@ -1,4 +1,6 @@
-﻿namespace planner.Models
+﻿using Microsoft.Build.Framework;
+
+namespace planner.Models
 {
     public class Goals
     {
@@ -13,6 +15,7 @@
         }
 
         public int GoalId { get; set; }
+        [Required]
         public string GoalName { get; set; }
         public int YearId { get; set; }
         public int MonthId { get; set; }

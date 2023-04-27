@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\img\\hanging.png"
     },
     {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\rating.png",
       "PackagePath": "staticwebassets\\img\\rating.png"
     },

@@ -52,6 +52,14 @@ namespace planner.Controllers
             return View(_home);
         }
 
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        public IActionResult Profile()
+        {
+            return View();
+        }
         public IActionResult Activity(int? YearId, int? MonthId, int? DayId)
         {
             if (!YearId.HasValue)
@@ -173,6 +181,7 @@ namespace planner.Controllers
                             goalsList.Add(goal);
 
                         }
+                        
                     }
                 }
 
@@ -202,11 +211,14 @@ namespace planner.Controllers
 
                             descriptionList.Add(desc);
 
-                        }
+                        }            
                     }
                 }
 
+                connection.Close();
             }
+
+            
 
             ViewBag.MonthId = MonthId;
 
@@ -224,7 +236,17 @@ namespace planner.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            string userId = Request.Cookies["Id"];
+
+            if (Convert.ToInt32(userId) != 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+
+            }
         }
 
         public IActionResult Logout()
@@ -234,13 +256,54 @@ namespace planner.Controllers
                 Response.Cookies.Delete(cookie);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Login" , "Home");
+        }
+
+        public IActionResult HeaderName()
+        {
+            int userId = int.Parse(Request.Cookies["Id"]);
+
+            string connectionString = _config.GetConnectionString("MySqlConnection");
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT Username FROM Users WHERE Id = @Id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", userId);
+
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        string Username = reader.GetString("Username");
+                        var user = new Users();
+                        var viewmodel = new HomeViewModels { Users = user };
+                        connection.Close();
+                        return Content(Username);
+                    }
+
+                    return PartialView("_header", null);
+                }
+            }
+
         }
 
         public IActionResult Register()
         {
-            Users users = new Users();
-            return View(users);
+            string userId = Request.Cookies["Id"];
+
+            if (Convert.ToInt32(userId) != 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                Users users = new Users();
+                return View(users);
+
+            }
         }
         // task section
         [HttpPost]
@@ -269,12 +332,15 @@ namespace planner.Controllers
                     //execute the command
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    connection.Close();
+
                     // get the query strings in a string 
                     string _queryParams = "?YearId=" + task.Tasks.YearId + "&MonthId=" + task.Tasks.MonthId + "&DayId=" + task.Tasks.DayId;
                     // redirect it to the URL
                     return Redirect("/Home/Activity" + _queryParams);
                 }
 
+                ;
             }
 
         }
@@ -300,9 +366,14 @@ namespace planner.Controllers
                     //execute the command
                     command.ExecuteNonQuery();
 
+
+                    connection.Close();
+
                     // returns inserted task as json
                     return Json(new { success = true });
                 }
+
+                
 
             }
 
@@ -329,6 +400,9 @@ namespace planner.Controllers
 
                     //execute the command
                     command.ExecuteNonQuery();
+
+
+                    connection.Close();
 
                     // returns inserted task as json
                     return Json(new { success = true });
@@ -365,11 +439,17 @@ namespace planner.Controllers
                     //execute the command
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    connection.Close();
+
                     // get the query strings in a string 
                     string _queryParams = "?YearId=" + expense.Expenses.YearId + "&MonthId=" + expense.Expenses.MonthId + "&DayId=" + expense.Expenses.DayId;
                     // redirect it to the URL
                     return Redirect("/Home/Activity" + _queryParams);
+                    
                 }
+                
+                
+
 
             }
 
@@ -395,10 +475,13 @@ namespace planner.Controllers
 
                     //execute the command
                     command.ExecuteNonQuery();
+                    connection.Close();
 
                     // returns inserted task as json
                     return Json(new { success = true });
                 }
+
+                
 
             }
 
@@ -429,11 +512,14 @@ namespace planner.Controllers
                     //execute the command
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    connection.Close();
                     // get the query strings in a string 
                     string _queryParams = "?YearId=" + goal.Goals.YearId + "&MonthId=" + goal.Goals.MonthId + "&DayId=" + goal.Goals.DayId;
                     // redirect it to the URL
                     return Redirect("/Home/Activity" + _queryParams);
                 }
+
+                
 
             }
 
@@ -460,9 +546,13 @@ namespace planner.Controllers
                     //execute the command
                     command.ExecuteNonQuery();
 
+                    connection.Close();
+
                     // returns inserted task as json
                     return Json(new { success = true });
                 }
+
+                
 
             }
 
@@ -494,12 +584,15 @@ namespace planner.Controllers
                     //execute the command
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    connection.Close();
+
                     // get the query strings in a string 
                     string _queryParams = "?YearId=" + _YearId + "&MonthId=" + _MonthId + "&DayId=" + _DayId;
                     // redirect it to the URL
                     return Redirect("/Home/Activity" + _queryParams);
                 }
 
+                
             }
 
         }
@@ -529,11 +622,15 @@ namespace planner.Controllers
                     //execute the command
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    connection.Close();
+
                     // get the query strings in a string 
                     string _queryParams = "?YearId=" + _YearId + "&MonthId=" + _MonthId + "&DayId=" + _DayId;
                     // redirect it to the URL
                     return Redirect("/Home/Activity" + _queryParams);
                 }
+
+                
 
             }
 
@@ -552,7 +649,7 @@ namespace planner.Controllers
                 // open the connection
                 connection.Open();
 
-                string checkUser = "SELECT COUNT(*) FROM USERS WHERE mobile = @mobile";
+                string checkUser = "SELECT COUNT(*) FROM Users WHERE mobile = @mobile";
 
                 // sql command to insert the data 
                 using (MySqlCommand command = new MySqlCommand(checkUser, connection))
@@ -568,6 +665,8 @@ namespace planner.Controllers
                     }
 
                 }
+
+                connection.Close();
 
             }
 
@@ -590,9 +689,9 @@ namespace planner.Controllers
 
                     //execute the command
                     command.ExecuteNonQuery();
-
-
                 }
+
+                connection.Close();
 
             }
 
@@ -637,14 +736,14 @@ namespace planner.Controllers
                                 Mobile = (string)reader["Mobile"],
 
                             };
-
                         }
+
+                        connection.Close();
                     }
 
                     return null;
                 }
-
-
+  
             }
 
         }

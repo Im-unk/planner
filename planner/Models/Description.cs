@@ -7,7 +7,7 @@ namespace planner.Models
         public Description()
         {
             DescriptionId = 0;
-            DescriptionName = "";
+            DescriptionName = "یادداشت";
             MonthId = 0;
             YearId = 0;
             DayId = 0;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.ComponentModel.DataAnnotations;
 
 namespace planner.Models
 {
@@ -19,6 +20,8 @@ namespace planner.Models
         public int MonthId { get; set; }
         public int YearId { get;  set; }
         public int DayId { get;  set; }
+
+        [Required]
         public string TaskName { get; set; }
         public int IsDone { get; set; }
         public int Id { get; set; }

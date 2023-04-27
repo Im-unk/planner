@@ -1,26 +1,47 @@
 ﻿
+@model planner.ViewModels.HomeViewModels
+
 <header>
     <div class="wrapper_welcome">
         <div class="container-fluid">
             <nav>
                 <div class="row">
                     <div class="logo col-2">
-                        <img src="" alt="logo" title="logo" />
+                        <img width="100px" height="70px" src="~/img/logo.png" alt="logo" title="logo" />
                     </div>
                     <div class="welcome col-6">
-                        <span id="headerWelcome" class="welcome_span"> عزیز خوش آمدید 👋</span>
-                        <span class="Date"> جمعه،04 فروردین 1402</span>
+                        <span id="headerWelcome" class="welcome_span"><span id="headerName">@Model.Users.UserName</span> عزیز خوش آمدید 👋</span>
+                        <span class="Date" id="todaysDate"></span>
                     </div>
                     <div class="col-4">
                         <div id="headerProfile" class="personnel">
+                            <div class="headerProfile"> 
                             <img class="personnel_img"
                                  src="~/img/محمدرضا عرب.png" />
+                               <div class="header-drop">
+                                   <a asp-controller="Home" asp-action="Index">
+                                       <p>
+                                          داشبورد
+                                       </p>
+
+                                   </a>
+                                @*   <a asp-controller="Home" asp-action="Profile">
+                                    <p>
+                                        ویراش اطلاعات
+                                    </p>
+
+                                   </a>*@
+                                   <a asp-controller="Home" asp-action="Logout">
+
+                                    <p>
+                                        خروج
+                                    </p>
+                                   </a>
+                                </div>
+                               </div>
                         </div>
 
                         <div id="headerLogout">
-                            <button asp-action="Logout">
-                                خروج
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -29,26 +50,18 @@
     </div>
 </header>
 
+
 <script>
+    const today = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'Asia/Tehran',
+        locale: 'fa-IR-u-ca-persian'
+    };
+    const persianDate = today.toLocaleDateString('fa-IR-u-ca-persian', options);
 
-    $(function() {
-
-        var _userId = document.cookie.match(/Id=([^;]+)/);
-        if (_userId != null || _userId != 0) {
-            var _userIdcookie = _userId[1]; 
-            $("#headerLogout").css("display" , "block");
-        }
-        else {
-            $("#headerWelcome").css("display" , "none");
-            $("#headerProfile").css("display" , "none");
-        }
-
-    })
-
+    document.getElementById("todaysDate").innerHTML = persianDate;
 </script>
-
-<style>
-    #headerLogout {
-        display: none;
-    }
-</style>

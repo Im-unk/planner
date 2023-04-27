@@ -10,14 +10,28 @@
 
 <div class="col-3">
     <aside>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion accordion-flush " id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading">
+                    <a asp-controller="Home" asp-action="Index" >
+                    <button  class="accordion-button accordion-button1 collapsed accordianToggler" type="button">
+                      داشبورد
+                    </button>
+                    </a>
+                </h2>
+            </div>
             @{
-                for (int month = 1; month <= 12; month++)
+                
+                foreach (var month in Enumerable.Range(1, 12))
                 {
                     var monthStartDate = new DateTime(now.Year, month, 1);
-                    var daysInMonth = DateTime.DaysInMonth(now.Year, month);
+
+                    var year = persianCalendar.GetYear(DateTime.Now);
+                    var daysInMonth = persianCalendar.GetDaysInMonth(year, month);
+                    var monthName = new string[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند" }[month - 1];
 
                     <div class="accordion-item">
+                  
                         <h2 class="accordion-header" id="flush-heading@(monthStartDate.ToString("MMMM"))">
                             <button class="accordion-button accordion-button1 collapsed"
                                 type="button"
@@ -25,7 +39,7 @@
                                 data-bs-target="#flush-collapse@(monthStartDate.ToString("MMMM"))"
                                 aria-expanded="false"
                                 aria-controls="flush-collapseOne">
-                                @GetPersianMonth(month)
+                                 @monthName
                             </button>
                         </h2>
                         <div id="flush-collapse@(monthStartDate.ToString("MMMM"))"
@@ -34,14 +48,16 @@
                          data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <ul>
-                                    @for (int day = 1; day <= daysInMonth; day++)
+                                    @foreach (var day in Enumerable.Range(1 , daysInMonth))
                                     {
-                                        var date = new DateTime(now.Year, month, day);
-                                        var persianDate = persianCalendar.GetYear(date) + "/" +
-                                        persianCalendar.GetMonth(date).ToString("00") + "/" +
-                                        persianCalendar.GetDayOfMonth(date).ToString("00");
+                                        var date = new DateTime(year, month, day, persianCalendar);
+                                        //var persianDate = persianCalendar.GetYear(date) + "/" +
+                                        //persianCalendar.GetMonth(date).ToString("00") + "/" +
+                                        //persianCalendar.GetDayOfMonth(date).ToString("00");
 
-                                        <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">@getPersianDay(persianCalendar.GetDayOfWeek(date).ToString()) - @persianDate</a></li>
+                                        <li><a href="/Home/Activity?YearId=@(persianCalendar.GetYear(date))&MonthId=@(persianCalendar.GetMonth(date))&DayId=@(persianCalendar.GetDayOfMonth(date))">
+                                        @getPersianDay(persianCalendar.GetDayOfWeek(date).ToString()) - @date.ToString("yyyy/MM/dd" , new System.Globalization.CultureInfo("fa-IR"))
+                                        </a></li>
 
                                     }
 
@@ -57,52 +73,6 @@
 </div>
 
 @functions {
-    private string GetPersianMonth(int month)
-    {
-        string _monthname = "";
-
-        switch (month)
-        {
-            case 1:
-                _monthname = "فروردین";
-                break;
-            case 2:
-                _monthname = "اردیبهشت";
-                break;
-            case 3:
-                _monthname = "خرداد";
-                break;
-            case 4:
-                _monthname = "تیر";
-                break;
-            case 5:
-                _monthname = "مرداد";
-                break;
-            case 6:
-                _monthname = "شهریور";
-                break;
-            case 7:
-                _monthname = "مهر";
-                break;
-            case 8:
-                _monthname = "آبان";
-                break;
-            case 9:
-                _monthname = "آذر";
-                break;
-            case 10:
-                _monthname = "دی";
-                break;
-            case 11:
-                _monthname = "بهمن";
-                break;
-            case 12:
-                _monthname = "اسفند";
-                break;
-        }
-
-        return _monthname;
-    }
 
 
     private string getPersianDay(string _day)
