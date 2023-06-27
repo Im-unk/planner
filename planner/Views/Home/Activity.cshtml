@@ -18,19 +18,7 @@
             <div class="col-12">
               <div class="detail">
                 <div class="row">
-                <div class="detail_dashbord1 col-3">
-                  <div>
-                    <img
-                      class="img_detail_dashbord"
-                      src="~/img/rating.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="detail_dashbord_div">
-                    <span class="detail_dashbord_span">امتیازات</span>
-                    <p class="detail_dashbord_p">0 ستاره</p>
-                  </div>
-                </div>
+                
                 <div class="col-9 dashboard-today" >
                                 <h3> روز: <span><span id="yearToday"></span>/<span id="monthToday"></span>/<span id="dayToday"></span></span></h3>
                     </div>
@@ -49,8 +37,8 @@
               </div>
             </div>
             <div class="col-12">
-              <div class="row">
-                <div class="col-4">
+              <div class="row" style="margin: 0;">
+                <div class="col-4" style="padding-right: 0;">
                   <div class="detail">
                   <p class="detail_item_p">کارهای روزانه</p>
                   <div class="detail_item_wrapper">
@@ -156,19 +144,38 @@
                                 </div>
                                 <div class="detail_item_Cost">
                                     <span>
-                                        @expense.ExpensePrice تومان
+                                                    <span class="expensePrice">@expense.ExpensePrice </span>تومان
                                     </span>
                                 </div>
    
                             </div>
                         }
+
+                        <div class="totalprice">
+                            <span>مجموع : <span class="totalPriceExpense"></span></span>
+       
+                        </div>
+
+                        <script>
+                            var expensePrices = document.getElementsByClassName("expensePrice");
+                            var total = 0;
+                            for (var i = 0; i < expensePrices.length; i++) {
+                                var price = parseInt(expensePrices[i].innerHTML);
+                                total += price;
+                            }
+
+                                        var totalExpense = document.getElementsByClassName("totalPriceExpense")[0];
+                            totalExpense.innerHTML = total + " تومان";
+                        </script>
+                        
+
                       <div class="detail_item_add">
                         <div class="detail_item_add">
                             @using (Html.BeginForm("AddExpense", "Home"))
                             {
                                 <div class="form-group">
                                     @Html.TextBoxFor(m => m.Expenses.ExpenseTitle , new {@Class = "detail_input" , @Placeholder = "نام هزینه"})
-                                    @Html.TextBoxFor(m => m.Expenses.ExpensePrice , new {@Class = "detail_input" , @Placeholder = "مبلغ"})
+                                    @Html.TextBoxFor(m => m.Expenses.ExpensePrice , new {@Class = "detail_input" , @Placeholder = "مبلغ (تومان)"})
                                     @Html.HiddenFor(m => m.Expenses.YearId , new { @Id = "yearIDE" })
                                     @Html.HiddenFor(m => m.Expenses.MonthId , new { @Id = "monthIDE" })
                                     @Html.HiddenFor(m => m.Expenses.DayId , new { @Id = "dayIDE" })
@@ -301,6 +308,9 @@
                                  <textarea class="detail_textarea">@details.DescriptionName</textarea>
                                     
                                 }
+
+                                @*<textarea class="detail_textarea">@Model.Description.DescriptionName</textarea>*@
+                               
                       <div class="detail_item_submit_wrapper">
                       <div class="detail_item_submit_text">
                         <button class="detail_submit">ثبت</button>
@@ -335,6 +345,7 @@
                                             },
                                             success: function (data) {
                                                 console.log(data);
+                                                
                                             }
                                         });
                                     }
@@ -352,9 +363,10 @@
                                             },
                                             success: function (data) {
                                                 console.log(data);
+                                                
                                             }, 
                                             error : function () {
-                                                alert("something wrong")
+                                                alert("مشکلی به وجود آمده است");
                                             }
                                         });
                                     }

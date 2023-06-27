@@ -638,7 +638,7 @@ namespace planner.Controllers
 
         //users section
         [HttpPost]
-        public IActionResult RegisterUser(Users users)
+        public IActionResult Register(Users users)
         {
             //Get the connection string from the configuration file
             string connectionString = _config.GetConnectionString("MySqlConnection");
@@ -660,8 +660,8 @@ namespace planner.Controllers
 
                     if (count > 0)
                     {
-                        ModelState.AddModelError("", "کاربر قبلا ایجاد شده است");
-                        return RedirectToAction("Register");
+                        ViewBag.ErrorMessage = "کاربر قبلا ایجاد شده است";
+                        return View();
                     }
 
                 }
@@ -764,7 +764,7 @@ namespace planner.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "نام کاربری یا گذرواژه اشتباه است");
+                ViewBag.ErrorMessage = "نام کاربری یا گذرواژه اشتباه است";
                 return View();
             }
         }

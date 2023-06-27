@@ -3,8 +3,15 @@
 <div class="container-fluid">
     <div class="login_wrappr">
         <div class="row">
+            <div class="col-12" >
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                }
+            </div>
             <div class="col-12">
                 <div class="login_body">
+                   
                     <div class="link_register">
                         <h3>
                             هنوز ثبت نام نکرده اید؟ برای ثبت نام رایگان
@@ -23,17 +30,16 @@
                         {
                             <div class="form-group-auth">
                                 @Html.TextBoxFor(m => m.Mobile , new {@Class = "input" , @Placeholder = "شماره موبایل"})
-                                <div class="inuputWrapper">
-                                @Html.TextBoxFor(m => m.Password , new {@Class = "input passwordInput" , @Id = "password", @Placeholder = "رمز عبور" , @Type="password"})
-                                <i class="fa fa-eye passIcon"></i>
-                                </div>
+                            
+                                @Html.TextBoxFor(m => m.Password , new {@Class = "input" , @Id = "password", @Placeholder = "رمز عبور" , @Type="password"})
+                              
                                 @*@Html.HiddenFor(m => m.LoginDate , new { @Id = "loginDate" })*@
                                 <button id="btnLogin" class="button_login">ورود</button>
                             </div>
                         }
                         
                         <p><a asp-controller="Home" asp-action="Register" class="p_a">ثبت نام</a></p>
-                        <p><a asp-controller="Home" asp-action="ForgetPassword" class="p_a">رمز عبورتان را فراموش کرده‌اید؟</a></p>
+                        
                     </div>
                 </div>
             </div>

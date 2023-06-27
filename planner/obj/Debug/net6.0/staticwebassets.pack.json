@@ -29,6 +29,82 @@
       "PackagePath": "staticwebassets\\fonts\\IRANSansWeb_Medium.woff2"
     },
     {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Bold.eot",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Bold.eot"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Bold.woff",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Bold.woff"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Light.eot",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Light.eot"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Light.woff",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Light.woff"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Light.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Light.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Medium.eot",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Medium.eot"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Medium.woff",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Medium.woff"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Medium.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Medium.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Thin.eot",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Thin.eot"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Thin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Thin.ttf"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Thin.woff",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Thin.woff"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir-Thin.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Vazir-Thin.woff2"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Vazir.ttf"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir.woff",
+      "PackagePath": "staticwebassets\\fonts\\Vazir.woff"
+    },
+    {
+      "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\fonts\\Vazir.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Vazir.woff2"
+    },
+    {
       "Id": "C:\\Users\\imanu\\Desktop\\Here\\projects\\planner\\planner\\wwwroot\\img\\analysis.png",
       "PackagePath": "staticwebassets\\img\\analysis.png"
     },
